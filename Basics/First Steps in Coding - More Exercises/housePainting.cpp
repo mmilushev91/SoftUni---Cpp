@@ -2,6 +2,7 @@
 using std::cin;
 using std::cout;
 using std::ios;
+using std::endl;
 
 int main() {
     double greenPainExpenceSqM = 3.4;
@@ -16,12 +17,22 @@ int main() {
     double h;
     cin >> h;
     
-    double sideSides = (x * y - 2.25) * 2;
+    double sideSides = x * y * 2;
     double frontSides = (x * x) * 2 - 2.4;
-    double greenPaintTotalSqM = frontSides + sideSides;
+    
+    double greenPaintTotalSqM = frontSides + (sideSides - 4.5);
     double greenPaintTotalExpense = greenPaintTotalSqM / greenPainExpenceSqM;
-  
-    cout << greenPaintTotalExpense;
+    
+    double roofFrontSides = (0.5 * x * h) * 2;
 
+    double redPaintTotalSqM = sideSides + roofFrontSides;
+    double redPaintTotalExpense = redPaintTotalSqM / redPainExpenceSqM;
+    
+    cout.setf(ios::fixed);
+    cout.precision(2);
+    
+    cout << greenPaintTotalExpense << endl;
+    cout << redPaintTotalExpense;
+    
     return 0;
 }
